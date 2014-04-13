@@ -1,0 +1,16 @@
+{
+  "name": "GitRSS",
+  "description": "a GitHub commits rss",
+  "launch_path": "/index.html",
+  "orientation": "portrait",
+  "developer": {
+    "name": "nag",
+    "url": "http//:github.com/nag-motherfuckers/"
+  },
+  "permissions": {"systemXHR": {} },
+  "type": "privileged",
+  "icons": {
+    "128": "/icons/128.jpg",
+    "60": "/icons/60.jpg"
+  }
+}

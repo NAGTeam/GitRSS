@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<script src='js/jquery-2.1.0.min.js'></script>
+		<script src="js/jquery.slides.min.js"></script>
+		<script src='js/script.js'></script>
+		<link type='text/css' href='style/headers.css' rel="stylesheet">
+		<link type='text/css' href='style/lists.css' rel="stylesheet">
+		<script>
+			$(function() {
+			  $('#slides').slidesjs({
+				width: 940,
+				height: 528
+			  });
+			});
+		</script>
+	</head>
+	<body>
+		<section role='region'>
+			<header>GitNotification</header>
+		</section>
+	
+		<section id='slides'>
+			<section>
+				<input name='user' placeholder='GitHub Username'class='input'>
+				<input name='repo' placeholder='GitHub Repository'class='input'>
+				<input name='branch' placeholder='Branch' class='input'>
+				<button>Submit</button>
+			</section>
+			
+			<section >
+				<h3>Commits</h3>
+				<div id='reslist'data-type='list'>
+				</div>
+			</section>
+		</section>
+	</body>
+</html>
