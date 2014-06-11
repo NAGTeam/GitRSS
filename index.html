@@ -1,37 +1,107 @@
 <html>
 	<head>
 		<script src='js/jquery-2.1.0.min.js'></script>
-		<script src="js/jquery.slides.min.js"></script>
+		<script src='js/brick-1.0.1.js'></script>
+		<script src='js/bootstrap.js'></script>
+		<script src='js/localStorage.js'></script>
 		<script src='js/script.js'></script>
-		<link type='text/css' href='style/headers.css' rel="stylesheet">
-		<link type='text/css' href='style/lists.css' rel="stylesheet">
-		<script>
-			$(function() {
-			  $('#slides').slidesjs({
-				width: 940,
-				height: 528
-			  });
-			});
-		</script>
+		
+		<link type='text/css' href='style/bootstrap.css' rel="stylesheet">
+		<link type='text/css' href='style/brick-1.0.1.css' rel="stylesheet">
+		<link type='text/css' href='style/style.css' rel="stylesheet">
 	</head>
-	<body>
-		<section role='region'>
-			<header>GitNotification</header>
-		</section>
-	
-		<section id='slides'>
-			<section>
-				<input name='user' placeholder='GitHub Username'class='input'>
-				<input name='repo' placeholder='GitHub Repository'class='input'>
-				<input name='branch' placeholder='Branch' class='input'>
-				<button>Submit</button>
-			</section>
+	<body>	
+		<x-deck>
+		
+			<x-card id='search_card' selected transition="show">
+				<x-layout id='search_layout' role="region">
+					  <header>
+						<h1 style='display:inline;'>GitNotification</h1>
+					</header>
+					<section id='search_section'>
+						<div id='inputs'>
+							<input name='user' placeholder='GitHub Username'class='input'>
+							<input name='repo' placeholder='GitHub Repository'class='input'>
+							<input name='branch' placeholder='Branch' class='input'>
+						</div>
+						<button id='submit'>Submit</button>
+					</section>
+					<footer>
+						<div>
+							<ul>
+								<li><a href='#' class='footbar toStarred'>Starred</a></li>
+								<li><a href='#' class='footbar toHistory'>History</a></li>
+							</ul>
+						</div>
+					</footer>
+				</x-layout>
+			</x-card>
+					
+			<x-card id='res_card'>
+				<x-layout id='res_layout' hide-trigger="scroll">
+					<header>
+						<a id='star_this' href='#'>
+							<span class="glyphicon glyphicon-star"></span> 
+						</a>
+						<h1 id='repo'></h1>
+					</header>
+					<section id='res_section'>
+						<h3>Commits</h3>
+						<div id='reslist'data-type='list'>
+						</div>
+					</section>
+					<footer>
+						<div>
+							<ul>
+								<li><a href='#' class='footbar toSearch triple'>Search</a></li>							
+								<li><a href='#' class='footbar toStarred triple'>Starred</a></li>
+								<li><a href='#' class='footbar toHistory triple'>History</a></li>
+							</ul>
+						</div>
+					</footer>
+				</x-layout>
+			</x-card>
 			
-			<section >
-				<h3>Commits</h3>
-				<div id='reslist'data-type='list'>
-				</div>
-			</section>
-		</section>
+			<x-card id='starred_card'>
+				<x-layout id='starred'>
+					<header>
+						<h1>Starred</h1>
+					</header>
+					<section>
+						<div id='star_list' data-type='list'>
+						</div>
+					</section>
+					<footer>
+						<div>
+							<ul>
+								<li><a href='#' class='footbar toSearch'>Search</a></li>							
+								<li><a href='#' class='footbar toHistory'>History</a></li>
+							</ul>
+						</div>
+					</footer>
+				</x-layout>
+			</x-card>
+			
+			<x-card id='history_card'>
+				<x-layout id='history'>
+					<header>
+						<h1>History</h1>
+					</header>
+					<section>
+						<ul id='list_his'>
+						</ul>
+					</section>
+					<footer>
+						<div>
+							<ul>
+								<li><a href='#' class='footbar toSearch'>Search</a></li>							
+								<li><a href='#' class='footbar toStarred'>Starred</a></li>
+							</ul>
+						</div>
+					</footer>
+				</x-layout>
+			</x-card>
+			
+		</x-deck>
 	</body>
 </html>
