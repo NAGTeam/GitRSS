@@ -1,6 +1,3 @@
-*{
-	border:1px solid red;
-}
 body{
 	
 	margin:0;
@@ -18,99 +15,12 @@ body{
 
 #submit{
 	padding:0.4rem 0.9rem;
+	background-color:#59abe3;
+	border:1px solid #3498db;
 }
 
-#dr-data{
-	position:absolute;
-	margin-top:0;
-}
-
-footer div{
-	
-	margin:0;
-	height:3rem;
-}
-
-footer div ul{
-    margin:0;
-    list-style-type: none;
-	list-style:none;
-	padding:0;
-}
-
-footer div ul li a{
-    text-decoration: none;
-    color: white;
-    background-color:#242d33;
-	text-align:center;
-	font-size:2rem;
-	border:1px solid white;
-	margin:0;
-}
-
-footer div ul li .triple{
-	float: left;
-    width: 33.3%;
-    text-decoration: none;
-    color: white;
-    background-color:#242d33;
-    padding: 1rem;
-    border-right: 1px solid white;
-	text-align:center;
-	font-size:2rem;
-}
-
-footer div ul li{
-	display: inline-block;
-	width:49%;
-}
-
-#list_his{
-	float:left;
-	list-style-type: none;
-	margin:auto;
-	width:100%;
-}
-
-.found a{
-    width: 100%;
-    text-decoration: none;
-    color: black;
-    background-color: white;
-	text-align:center;
-	height:4rem;
-	font-size:1.8rem;
-}
-
-.header {
-	height: 5rem;
-	padding: 0;
-	background-color:#242d33;
-	position: relative;
-}
-
-.header h1{
-	font-size: 2.5rem;
-	line-height: normal;
-	text-align: center;
-	color: #fff;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	margin: auto;
-	padding: 0 0.2rem;
-	font-weight: 200;
-}
-
-.header a .glyphicon{
-  position: relative;
-  vertical-align: middle;
-  margin: 0 -1rem;
-  background: transparent no-repeat center center / 3rem auto;
-  font-size: 0;
-  overflow: hidden;
-}
-
-.glyphicon-star:before {
-  content: "\e006";
+span{
+	font-size:1rem;
+	color:#000;
+	font-weight: 500;
 }

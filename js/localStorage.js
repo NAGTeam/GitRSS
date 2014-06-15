@@ -11,7 +11,6 @@ function init(){
 		for(i=1; i<=count;i++) {
 			if(JSON.parse(localStorage.getItem(i+"")) !== null){
 				oggetto = JSON.parse(localStorage.getItem(i+""));
-				console.log(oggetto);
 			}
 		}
 }
@@ -31,14 +30,13 @@ function getData(section){
 	for(i=1; i<=count;i++) {
 		if(JSON.parse(localStorage.getItem(i+"")) !== null){
 			oggetto = JSON.parse(localStorage.getItem(i+""));
-			console.log(i);
 			if(section == 'history'){
 				if(oggetto['section'] == 'history') 
-					$('#list_his').prepend('<li id='+i+' class="found_his"><a href="#"><b>'+oggetto["user"]+'</b>' +oggetto["repo"]+'</a></li>');
+					$('#list_his').prepend('<li id='+i+' class="found_his"><a href="#"><span>'+oggetto["user"]+'</span> ' +oggetto["repo"]+'</a></li>');
 			}
 			if(section == 'starred'){
 				if(oggetto['section'] == 'starred')
-				$('#star_list').prepend('<li id='+i+' class="found_star"><a href="#"><b>'+oggetto["user"]+'</b>' +oggetto["repo"]+'</a></li>');
+				$('#star_list').prepend('<li id='+i+' class="found_star"><a href="#"><span>'+oggetto["user"]+'</span> ' +oggetto["repo"]+'</a></li>');
 			}
 		}
 	}

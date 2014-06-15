@@ -6,10 +6,11 @@
 		<script src='js/localStorage.js'></script>
 		<script src='js/script.js'></script>
 		
+		<link type='text/css' href='style/lists.css' rel="stylesheet">
 		<link type='text/css' href='style/toolbars.css' rel="stylesheet">
 		<link type='text/css' href='style/headers.css' rel="stylesheet">
 		<link type='text/css' href='style/brick-1.0.1.css' rel="stylesheet">
-		<!--<link type='text/css' href='style/style.css' rel="stylesheet">-->
+		<link type='text/css' href='style/style.css' rel="stylesheet">
 	</head>
 	<body>	
 		<x-deck>
@@ -23,7 +24,7 @@
 							<input name='user' placeholder='GitHub Username'class='input form-control'>
 							<input name='repo' placeholder='GitHub Repository'class='input form-control'>
 							<input name='branch' placeholder='Branch' class='input form-control'>
-							<button id='submit' class='btn-success input'>Submit</button>
+							<button id='submit' class='btn-success input'>Search</button>
 						</div>
 					</section>
 					<footer role="toolbar">
@@ -70,7 +71,7 @@
 							<h1>Starred</h1>
 						</div>
 					</header>
-					<section>
+					<section data-type='list'>
 						<ul id='star_list'>
 						</ul>
 					</section>
@@ -92,7 +93,7 @@
 							<h1>History</h1>
 						</div>
 					</header>
-					<section>
+					<section data-type='list'>
 						<ul id='list_his'>
 						</ul>
 					</section>

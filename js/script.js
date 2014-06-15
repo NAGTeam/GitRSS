@@ -23,7 +23,13 @@ $(document).ready(function(){
 		branch=$('input[name=branch]').val();
 		repo=$('input[name=repo]').val();
 		user=$('input[name=user]').val();
-		sendRequest(user,repo,branch);
+		if( branch== '')
+			branch='master';
+		if(user == '' || repo == ''){
+			alert('Please insert values');
+		}else{
+			sendRequest(user,repo,branch);
+		}
 	});
 	
 	$(document).on('click','.found_his',function(){
@@ -64,23 +70,48 @@ function sendRequest(user,repo,branch){
 	$('#repo').empty();
 	$('#repo').append('<h1>'+repo+'</h1>');
 	url= 'http://github.com/'+user+'/'+repo+'/commits/'+branch+'.atom';
-	request.open('GET', url);
+	request.open('GET', url, true);
+	console.log('here 1');
+	
+	request.timeout = 5750;
+	request.addEventListener('timeout', function() {
+		alert('No connection..');
+	});
+	
 	request.send();
+	console.log('here 2');
 	request.onreadystatechange=function(){
+		if(request.status == 404 && request.readyState == 4){
+			alert('No data found');
+			$('input[name=branch]').val("");
+			$('input[name=repo]').val("");
+			$('input[name=user]').val("");
+			return;
+		}
+			
 		if(request.status===200 && request.readyState==4){
-			console.log(request.responseText);
-				
+			console.log(request.statusText);
+			console.log('here 3');
 			response=request.responseText;
 			responseDoc=$.parseXML(response);
 			$response=$(responseDoc);
-			
+		
 			titolo= $response.find('entry title');
+			console.log(titolo);
 			console.log(titolo[0].textContent);
 			author= $response.find('name');
 			console.log(author);
 			update=$response.find('entry updated');
 			$('#reslist').empty();
 			
+			if(titolo == undefined){
+				console.log('enter here');
+				alert('No data found...');
+				$('input[name=branch]').val("");
+				$('input[name=repo]').val("");
+				$('input[name=user]').val("");
+				return;
+			}
 				
 			for(i=0;i<=titolo.length; i++){
 				if(update[i] != undefined){
@@ -96,16 +127,15 @@ function sendRequest(user,repo,branch){
 				}
 			}
 			goToCard(1);
+			searchData={
+				'user':user,
+				'repo':repo,
+				'branch':branch,
+				'section':'history'
+			};
+			save(searchData);
 		}
 	};
-	
-	searchData={
-		'user':user,
-		'repo':repo,
-		'branch':branch,
-		'section':'history'
-	};
-	save(searchData);
 }
 
 function goToCard(cardNum){
