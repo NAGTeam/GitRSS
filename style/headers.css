@@ -5,7 +5,7 @@
   position: relative;
   z-index: 10;
   padding: 0;
-  height: 5rem;
+  height: 3.5rem;
   color: #fff;
   background-color: rgba(0,0,0, 0.85);
   border: none;
@@ -17,8 +17,8 @@ body{
 }
 
 .top-menu:first-child h1 {
-  font-size: 2.5rem;
-  line-height: 5rem;
+  font-size: 1.8rem;
+  line-height: 3.5rem;
   text-align: center;
   color: #fff;
   white-space: nowrap;
