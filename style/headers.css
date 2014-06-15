@@ -176,6 +176,10 @@ body{
   background-image: url(headers/images/icons/Bookmark-48.png);
 }
 
+.top-menu:first-child .icon.icon-clearHistory {
+  background-image: url(headers/images/icons/Garbage-Closed-48.png);
+}
+
 .top-menu:first-child .icon.icon-compose {
   background-image: url(headers/images/icons/compose.png);
 }

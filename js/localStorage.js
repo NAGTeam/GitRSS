@@ -41,3 +41,17 @@ function getData(section){
 		}
 	}
 }
+
+function clearHistory(){
+	count=parseInt(localStorage.getItem('counter'));
+	for(i=1; i<=count;i++) {
+		if(JSON.parse(localStorage.getItem(i+"")) !== null){
+			oggetto = JSON.parse(localStorage.getItem(i+""));
+			if(oggetto['section'] == 'history'){
+				localStorage.removeItem(i+'');
+			}
+		}
+	}
+	goToCard(3);
+	getData('history');
+}

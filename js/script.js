@@ -16,6 +16,11 @@ $(document).ready(function(){
 		goToCard(3);
 		getData('history');
 	});
+	
+	$(document).on('click','#clear',function(){
+		if(confirm('clear History?'))
+			clearHistory();
+	});
 
 	$(document).on('click','#submit',function(){
 		console.log('click');
