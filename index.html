@@ -6,98 +6,103 @@
 		<script src='js/localStorage.js'></script>
 		<script src='js/script.js'></script>
 		
-		<link type='text/css' href='style/bootstrap.css' rel="stylesheet">
+		<link type='text/css' href='style/toolbars.css' rel="stylesheet">
+		<link type='text/css' href='style/headers.css' rel="stylesheet">
 		<link type='text/css' href='style/brick-1.0.1.css' rel="stylesheet">
-		<link type='text/css' href='style/style.css' rel="stylesheet">
+		<!--<link type='text/css' href='style/style.css' rel="stylesheet">-->
 	</head>
 	<body>	
 		<x-deck>
-		
 			<x-card id='search_card' selected transition="show">
-				<x-layout id='search_layout' role="region">
-					  <header>
-						<h1 style='display:inline;'>GitNotification</h1>
+				<x-layout id='search_layout'>
+					<header class='top-menu'>
+						<h1>GitRSS</h1>
 					</header>
 					<section id='search_section'>
 						<div id='inputs'>
-							<input name='user' placeholder='GitHub Username'class='input'>
-							<input name='repo' placeholder='GitHub Repository'class='input'>
-							<input name='branch' placeholder='Branch' class='input'>
+							<input name='user' placeholder='GitHub Username'class='input form-control'>
+							<input name='repo' placeholder='GitHub Repository'class='input form-control'>
+							<input name='branch' placeholder='Branch' class='input form-control'>
+							<button id='submit' class='btn-success input'>Submit</button>
 						</div>
-						<button id='submit'>Submit</button>
 					</section>
-					<footer>
-						<div>
-							<ul>
-								<li><a href='#' class='footbar toStarred'>Starred</a></li>
-								<li><a href='#' class='footbar toHistory'>History</a></li>
-							</ul>
-						</div>
+					<footer role="toolbar">
+						  <ul>
+							<li><a href='#' class='toStarred'>Starred</a></li>
+						  </ul>
+						  <ul>
+							<li><a href='#' class='toHistory'>History</a></li>
+						  </ul>
 					</footer>
 				</x-layout>
 			</x-card>
 					
 			<x-card id='res_card'>
-				<x-layout id='res_layout' hide-trigger="scroll">
-					<header>
-						<a id='star_this' href='#'>
-							<span class="glyphicon glyphicon-star"></span> 
-						</a>
-						<h1 id='repo'></h1>
+				<x-layout id='res_layout'>
+					<header class='top-menu'>
+						<div class='header'>
+							<a id='star_this'>
+								<span class="glyphicon glyphicon-star"></span> 
+							</a>
+							<h1 id='repo'></h1>
+						</div>
 					</header>
 					<section id='res_section'>
 						<h3>Commits</h3>
-						<div id='reslist'data-type='list'>
+						<div id='reslist' data-type='list'>
 						</div>
 					</section>
-					<footer>
-						<div>
-							<ul>
-								<li><a href='#' class='footbar toSearch triple'>Search</a></li>							
-								<li><a href='#' class='footbar toStarred triple'>Starred</a></li>
-								<li><a href='#' class='footbar toHistory triple'>History</a></li>
-							</ul>
-						</div>
+					<footer role="toolbar">
+						  <ul>
+							<li><a href='#' class='toStarred'>Starred</a></li>
+						  </ul>
+						  <ul>
+							<li><a href='#' class='toHistory'>History</a></li>
+						  </ul>
 					</footer>
 				</x-layout>
 			</x-card>
 			
 			<x-card id='starred_card'>
 				<x-layout id='starred'>
-					<header>
-						<h1>Starred</h1>
+					<header class='top-menu'>
+						<div class='header'>
+							<h1>Starred</h1>
+						</div>
 					</header>
 					<section>
-						<div id='star_list' data-type='list'>
-						</div>
+						<ul id='star_list'>
+						</ul>
 					</section>
-					<footer>
-						<div>
-							<ul>
-								<li><a href='#' class='footbar toSearch'>Search</a></li>							
-								<li><a href='#' class='footbar toHistory'>History</a></li>
-							</ul>
-						</div>
+					<footer role="toolbar">
+						  <ul>
+							<li><a href='#' class='toSearch'>Search</a></li>
+						  </ul>
+						  <ul>
+							<li><a href='#' class='toHistory'>History</a></li>
+						  </ul>
 					</footer>
 				</x-layout>
 			</x-card>
 			
 			<x-card id='history_card'>
 				<x-layout id='history'>
-					<header>
-						<h1>History</h1>
+					<header class='top-menu'>
+						<div class='header'>
+							<h1>History</h1>
+						</div>
 					</header>
 					<section>
 						<ul id='list_his'>
 						</ul>
 					</section>
-					<footer>
-						<div>
-							<ul>
-								<li><a href='#' class='footbar toSearch'>Search</a></li>							
-								<li><a href='#' class='footbar toStarred'>Starred</a></li>
-							</ul>
-						</div>
+					<footer role="toolbar">
+						  <ul>
+							<li><a href='#' class='toSearch'>Search</a></li>
+						  </ul>
+						  <ul>
+							<li><a href='#' class='toStarred'>Starred</a></li>
+						  </ul>
 					</footer>
 				</x-layout>
 			</x-card>

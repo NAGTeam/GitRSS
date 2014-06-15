@@ -1,0 +1,53 @@
+/* ----------------------------------
+* Toolbars
+* ---------------------------------- */
+
+
+
+a{
+	
+}
+
+[role="toolbar"] {
+  height: 3rem;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(0,0,0, 0.85);
+}
+
+[role="toolbar"] ul:first-child {
+  float: left;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width:49.6%;
+  border-right:1px solid white;
+}
+
+[role="toolbar"] ul:last-child {
+  float: right;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width:49.99%;
+}
+
+[role="toolbar"] li {
+  height:100%;
+  width:100%;
+  text-align:center;
+  line-height:3rem;
+}
+
+[role="toolbar"] a {
+    display:block;
+	font-size:1.3rem;
+	color:white;
+	text-decoration: none;
+}
+
+[role="toolbar"] a:active {
+  background-color: rgba(0,0,0, 0.70);
+}
