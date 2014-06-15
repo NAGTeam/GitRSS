@@ -17,8 +17,6 @@
 			<x-card id='search_card' selected transition="show">
 				<x-layout id='search_layout'>
 					<header class='top-menu'>
-						<button><span class="icon icon-close">close</span></button>
-						<menu type="toolbar"><button>done</button></menu>
 						<h1>GitRSS</h1>
 					</header>
 					<section id='search_section'>
@@ -43,12 +41,11 @@
 			<x-card id='res_card' transition-type='slide-right'>
 				<x-layout id='res_layout'>
 					<header class='top-menu'>
-						<div class='header'>
-							<a id='star_this'>
-								<span class="glyphicon glyphicon-star"></span> 
-							</a>
-							<h1 id='repo'></h1>
-						</div>
+						<button class='toSearch'><span class='icon icon-search'>search</span></button>
+						<menu type="toolbar">
+						    <button id='star_this'><span class="icon icon-bookmark">bookmark</span></button>
+						</menu>
+						<h1 id='repo'></h1>
 					</header>
 					<section id='res_section'>
 						<div id='reslist' data-type='list'>

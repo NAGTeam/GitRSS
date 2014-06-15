@@ -1,5 +1,4 @@
 body{
-	
 	margin:0;
 }
 
@@ -20,7 +19,7 @@ body{
 	color:white;
 }
 
-span{
+.title{
 	font-size:1rem;
 	color:#000;
 	font-weight: 500;

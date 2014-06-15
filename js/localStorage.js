@@ -32,11 +32,11 @@ function getData(section){
 			oggetto = JSON.parse(localStorage.getItem(i+""));
 			if(section == 'history'){
 				if(oggetto['section'] == 'history') 
-					$('#list_his').prepend('<li id='+i+' class="found_his"><a href="#"><span>'+oggetto["user"]+'</span> ' +oggetto["repo"]+'</a></li>');
+					$('#list_his').prepend('<li id='+i+' class="found_his"><a href="#"><span class="title">'+oggetto["user"]+'</span> ' +oggetto["repo"]+'</a></li>');
 			}
 			if(section == 'starred'){
 				if(oggetto['section'] == 'starred')
-				$('#star_list').prepend('<li id='+i+' class="found_star"><a href="#"><span>'+oggetto["user"]+'</span> ' +oggetto["repo"]+'</a></li>');
+				$('#star_list').prepend('<li id='+i+' class="found_star"><a href="#"><span class="title">'+oggetto["user"]+'</span> ' +oggetto["repo"]+'</a></li>');
 			}
 		}
 	}
