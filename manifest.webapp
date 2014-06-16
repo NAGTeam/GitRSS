@@ -10,7 +10,7 @@
   "permissions": {"systemXHR": {} },
   "type": "privileged",
   "icons": {
-    "128": "/icons/128.jpg",
-    "60": "/icons/60.jpg"
+    "128": "/icon/128.png",
+    "60": "/icon/60.png"
   }
 }
