@@ -3,25 +3,29 @@ body{
 }
 
 #inputs{
-	/*display: inline-block;*/
-	text-align:center;
+	width:100%;
+	
 }
-
+.form-control{
+	width:80%;
+}
 .input{
 	margin-top:1rem;
-	margin-left:1rem;
-	margin-right:1rem;
-	padding:1.5rem 4rem;
+	margin-left:10%;
+	margin-right:10%;
+	padding:1.5rem 2.5rem;
 	font-size: 1rem;
+	width:80%;
+	
 }
 
 #submit{
-	padding:1.5rem 8.1rem;
-	margin-left:1rem;
-	margin-right:1rem;
+	padding:1.5rem;
 	background-color:#59abe3;
 	border:1px solid #3498db;
 	color:white;
+	margin-left:10%;
+	margin-right:10%;
 }
 
 .title{
