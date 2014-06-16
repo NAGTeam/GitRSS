@@ -86,7 +86,7 @@ li a:active {
   background: none; /* remove default color for active state */
 }
 
-[data-type="list"] li > a, a {
+[data-type="list"] li > a {
   text-decoration: none;
   color: #000;
   display: block;

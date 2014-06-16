@@ -23,6 +23,10 @@ body{
 	width:80%;
 	
 }
+a {
+	text-decoration: none;
+	color: #000;
+}
 
 #submit{
 	padding:1.5rem;

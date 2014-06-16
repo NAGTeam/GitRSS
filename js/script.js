@@ -120,7 +120,6 @@ function sendRequest(user,repo,branch){
 			response=request.responseText;
 			responseDoc=$.parseXML(response);
 			$response=$(responseDoc);
-			console.log(response);
 		
 			/*scraping the answer to find useful infos, then clear current list*/
 			titolo= $response.find('entry title');
@@ -138,7 +137,6 @@ function sendRequest(user,repo,branch){
 					day=date[3];
 					hour=date[4];
 					link=$response.find('entry link')[i].getAttribute("href");
-					console.log(link);
 					
 					/*show results*/
 					$('#reslist').append('<header>'+day+'-'+month+' '+hour+' by '+author[i].textContent+'</header><a id="link" href="#"><p>'+titolo[i].textContent+'</p></a>');
