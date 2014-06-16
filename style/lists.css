@@ -4,6 +4,7 @@
 [data-type="list"] {
   font-weight: 400;
   padding: 1rem;
+  overflow:scroll;
 }
 
 [data-type="list"] ul li span {
@@ -16,7 +17,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 [data-type="list"] strong {
@@ -41,7 +42,7 @@
 
 [data-type="list"] .found_his,[data-type="list"] .found_star {
   width: 100%;
-  height: 2.5rem;
+  height: 5.3rem;
   -moz-box-sizing: border-box;
   border-bottom: solid 0.1rem #e7e7e7;
   color: #000;
@@ -55,7 +56,7 @@
   text-decoration: none;
   color: #34495e;
   display: block;
-  height: 2.5rem;
+  height: 5.3rem;
   position: relative;
   border: none;
   outline: none;

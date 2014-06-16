@@ -9,6 +9,11 @@ body{
 .form-control{
 	width:80%;
 }
+
+#res_card{
+	background-color:white;
+}
+
 .input{
 	margin-top:1rem;
 	margin-left:10%;
@@ -29,7 +34,7 @@ body{
 }
 
 .title{
-	font-size:1rem;
+	font-size:0.8rem;
 	color:#000;
 	font-weight: 500;
 }
