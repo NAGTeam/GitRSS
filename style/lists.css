@@ -3,14 +3,20 @@
  * ---------------------------------- */
 [data-type="list"] {
   font-weight: 400;
-  padding: 0 1.5rem;
+  padding: 1rem;
+}
+
+[data-type="list"] ul li span {
+  font-size: 1.5rem;
 }
 
 [data-type="list"] ul {
+  text-align: center;
   list-style: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-size: 1.5rem;
 }
 
 [data-type="list"] strong {

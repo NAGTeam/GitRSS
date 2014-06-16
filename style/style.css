@@ -3,17 +3,22 @@ body{
 }
 
 #inputs{
-	display: inline-block;
+	/*display: inline-block;*/
+	text-align:center;
 }
 
 .input{
 	margin-top:1rem;
-	margin-left:2rem;
-	padding:1.5rem;
+	margin-left:1rem;
+	margin-right:1rem;
+	padding:1.5rem 4rem;
+	font-size: 1rem;
 }
 
 #submit{
-	padding:0.4rem 0.9rem;
+	padding:1.5rem 8.1rem;
+	margin-left:1rem;
+	margin-right:1rem;
 	background-color:#59abe3;
 	border:1px solid #3498db;
 	color:white;
