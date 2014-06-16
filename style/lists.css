@@ -42,7 +42,7 @@
 
 [data-type="list"] .found_his,[data-type="list"] .found_star {
   width: 100%;
-  height: 5.3rem;
+  height: 3.5rem;
   -moz-box-sizing: border-box;
   border-bottom: solid 0.1rem #e7e7e7;
   color: #000;
@@ -56,7 +56,7 @@
   text-decoration: none;
   color: #34495e;
   display: block;
-  height: 5.3rem;
+  height: 3.5rem;
   position: relative;
   border: none;
   outline: none;

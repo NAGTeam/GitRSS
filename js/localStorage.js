@@ -22,24 +22,18 @@ function save(dataJSON){
 function getData(section){
 	console.log('getting');
 	count=parseInt(localStorage.getItem('counter'));
-	if(section == 'starred'){
-		$('#star_list').prepend('<li class="found_star"></li>');
-	}
-	if(section == 'history'){
-		$('#list_his').prepend('<li class="found_his"></li>');
-	}
 	for(i=1; i<=count;i++) {
 		if(JSON.parse(localStorage.getItem(i+"")) !== null){
 			oggetto = JSON.parse(localStorage.getItem(i+""));
 			/*if history is selected, prepend only history items*/
 			if(section == 'history'){
 				if(oggetto['section'] == 'history') 
-					$('#list_his').prepend('<li id='+i+' class="found_his"><a href="#"><span class="title">'+oggetto["user"]+'</span> '+oggetto["repo"]+'</a></li>');
+					$('#list_his').prepend('<li id='+i+' class="found_his"><a href="#"><span>'+oggetto["user"]+'/</span><span class="title">' +oggetto["repo"]+'</span></a></li>');
 			}
 			/*loads only starred elements in the same way of section history*/
 			if(section == 'starred'){
 				if(oggetto['section'] == 'starred')
-				$('#star_list').prepend('<li id='+i+' class="found_star"><a href="#"><span class="title">'+oggetto["user"]+'</span> '+oggetto["repo"]+'</a></li>');
+				$('#star_list').prepend('<li id='+i+' class="found_star"><a href="#"><span>'+oggetto["user"]+'/</span><span class="title">' +oggetto["repo"]+'</span></a></li>');
 			}
 		}
 	}
