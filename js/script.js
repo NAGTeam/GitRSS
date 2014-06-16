@@ -1,35 +1,44 @@
 
 $(document).ready(function(){
-	console.log('start');
+	/*initialize the localStorage counter to 0*/
 	init();
 	
+	/*navigation to search section*/
 	$(document).on('click','.toSearch',function(){
 		goToCard(0);
 	});
 	
+	/*navigation to starred section*/
 	$(document).on('click','.toStarred',function(){
 		goToCard(2);
 		getData('starred');
 	});
 	
+	/*navigation to history section*/
 	$(document).on('click','.toHistory',function(){
 		goToCard(3);
 		getData('history');
 	});
 	
+	/*clear history listener*/
 	$(document).on('click','#clear',function(){
 		if(confirm('clear History?'))
 			clearHistory();
 	});
-
+	
+	/*search button listener*/
 	$(document).on('click','#submit',function(){
-		console.log('click');
-		//$('#reslist').empty();
+		
+		/*get inputs values*/
 		branch=$('input[name=branch]').val();
 		repo=$('input[name=repo]').val();
 		user=$('input[name=user]').val();
+		
+		/*if no branch selected, master branch is gotten*/
 		if( branch== '')
 			branch='master';
+			
+		/*if no values inserted->alert, else send a request with that datas*/
 		if(user == '' || repo == ''){
 			alert('Please insert values');
 		}else{
@@ -37,8 +46,9 @@ $(document).ready(function(){
 		}
 	});
 	
+	/*history list listener, auto redirect on click*/
 	$(document).on('click','.found_his',function(){
-		console.log($(this).attr('id'));
+		/*id is setted to the counter value of each element*/
 		showNumber = parseInt($(this).attr('id'));
 		selected = JSON.parse(localStorage.getItem(showNumber+""));
 		user=selected['user'];
@@ -47,6 +57,7 @@ $(document).ready(function(){
 		sendRequest(selected['user'],selected['repo'],selected['branch']);
 	});
 	
+	/*starred list listener*/
 	$(document).on('click','.found_star',function(){
 		console.log($(this).attr('id'));
 		showNumber = parseInt($(this).attr('id'));
@@ -57,6 +68,7 @@ $(document).ready(function(){
 		sendRequest(selected['user'],selected['repo'],selected['branch']);
 	});
 	
+	/*put a result in bookmark list (alias Starred)*/
 	$(document).on('click','#star_this',function(){
 		faveData={
 			'user':user,
@@ -65,27 +77,34 @@ $(document).ready(function(){
 			'section':'starred'
 		};
 		save(faveData);
-		alert('aggiunto ai preferiti');
+		alert('added to your boormarks');
 	});
 });
-	
+
+/*send the xmlHTTPRequest*/
 function sendRequest(user,repo,branch){
 	request=new XMLHttpRequest({mozSystem:true});
-	console.log(repo);
+
+	/*clear the contents of #repo*/
 	$('#repo').empty();
 	$('#repo').append('<h1>'+repo+'</h1>');
+	
+	/*paste the URL to get*/
 	url= 'http://github.com/'+user+'/'+repo+'/commits/'+branch+'.atom';
 	request.open('GET', url, true);
-	console.log('here 1');
 	
+	/*set the timeout to detect connection issues*/
 	request.timeout = 5750;
 	request.addEventListener('timeout', function() {
 		alert('No connection..');
 	});
 	
+	/*send the request*/
 	request.send();
-	console.log('here 2');
+	
+	/*when request change status*/
 	request.onreadystatechange=function(){
+		/*if it's ready but hasn't find any page*/
 		if(request.status == 404 && request.readyState == 4){
 			alert('No data found');
 			$('input[name=branch]').val("");
@@ -93,45 +112,40 @@ function sendRequest(user,repo,branch){
 			$('input[name=user]').val("");
 			return;
 		}
-			
+		
+		/*if it's ready and has found the URL*/
 		if(request.status===200 && request.readyState==4){
-			console.log(request.statusText);
-			console.log('here 3');
+		
+			/*xml parsing the answer*/
 			response=request.responseText;
 			responseDoc=$.parseXML(response);
 			$response=$(responseDoc);
 		
+			/*scraping the answer to find useful infos, then clear current list*/
 			titolo= $response.find('entry title');
-			console.log(titolo);
-			console.log(titolo[0].textContent);
 			author= $response.find('name');
-			console.log(author);
 			update=$response.find('entry updated');
 			$('#reslist').empty();
 			
-			if(titolo == undefined){
-				console.log('enter here');
-				alert('No data found...');
-				$('input[name=branch]').val("");
-				$('input[name=repo]').val("");
-				$('input[name=user]').val("");
-				return;
-			}
-				
+			/*iterate all the values*/
 			for(i=0;i<=titolo.length; i++){
 				if(update[i] != undefined){
+					/*date matched with regex to modify their position*/
 					date=(update[i].textContent).match(/(\d+)\-(\d+)\-(\d+)\w(\d+:\d+):/);
 					year=date[1];
 					month=date[2];
 					day=date[3];
 					hour=date[4];
-					console.log(date);
+					
+					/*show results*/
 					$('#reslist').append('<header>'+day+'-'+month+' '+hour+' by '+author[i].textContent+'</header><p>'+titolo[i].textContent+'</p>');
 				}else{
 					break;
 				}
 			}
 			goToCard(1);
+			
+			/*add this datas to storage*/
 			searchData={
 				'user':user,
 				'repo':repo,
@@ -143,8 +157,11 @@ function sendRequest(user,repo,branch){
 	};
 }
 
+/*deal the cards' transitions*/
 function goToCard(cardNum){
 	document.querySelector('x-deck').showCard(cardNum);
+	
+	/*reset inputs and clear lists*/
 	$('input[name=branch]').val("");
 	$('input[name=repo]').val("");
 	$('input[name=user]').val("");
