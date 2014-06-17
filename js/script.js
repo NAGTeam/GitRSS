@@ -157,17 +157,7 @@ function sendRequest(user,repo,branch){
 					link=$response.find('entry link')[i].getAttribute("href");
 					
 					/*show results*/
-					$('#reslist').append('<header>'+day+'-'+month+' '+hour+' by '+author[i].textContent+'</header><a id="link" href="#"><p>'+titolo[i].textContent+'</p></a>');
-					document.querySelector("#link")
-						.onclick = function () {
-						new MozActivity({
-							name: "view",
-							data: {
-								type: "url",
-								url: link
-							}
-						});
-					};	
+					$('#reslist').append('<header>'+day+'-'+month+' '+hour+' by '+author[i].textContent+'</header><a href="'+link+'"><p>'+titolo[i].textContent+'</p></a>');
 				}else{
 					break;
 				}
