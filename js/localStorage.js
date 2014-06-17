@@ -10,11 +10,27 @@ function init(){
 
 /*save dataJSON, that contains user repo and branch, in the local storage*/
 function save(dataJSON){
-	console.log('saving '+ dataJSON);
-	JString=JSON.stringify(dataJSON);
+	alreadySaved=false;
+	
 	count=parseInt(localStorage.getItem('counter'));
-	localStorage.setItem('counter',(++count)+"");
-	localStorage.setItem(count+"", JString);
+	for(i=1; i<=count;i++) {
+		if(JSON.parse(localStorage.getItem(i+"")) !== null){
+			oggetto = JSON.parse(localStorage.getItem(i+""));
+			console.log(oggetto);
+			console.log(dataJSON);
+			if(oggetto['user'] == dataJSON['user'] && oggetto['repo'] == dataJSON['repo'] && oggetto['branch'] == dataJSON['branch'] && oggetto['section'] == dataJSON['section']){
+				alreadySaved=true;
+				break;
+			}
+		}
+	}
+	if(!alreadySaved){
+		console.log('saving '+ dataJSON);
+		JString=JSON.stringify(dataJSON);
+		count=parseInt(localStorage.getItem('counter'));
+		localStorage.setItem('counter',(++count)+"");
+		localStorage.setItem(count+"", JString);
+	}
 	
 }
 

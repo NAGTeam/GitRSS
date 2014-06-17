@@ -76,8 +76,26 @@ $(document).ready(function(){
 			'branch':branch,
 			'section':'starred'
 		};
-		save(faveData);
-		alert('added to your boormarks');
+		alreadySaved=false;
+	
+		count=parseInt(localStorage.getItem('counter'));
+		for(i=1; i<=count;i++) {
+			if(JSON.parse(localStorage.getItem(i+"")) !== null){
+				oggetto = JSON.parse(localStorage.getItem(i+""));
+				console.log(oggetto);
+				console.log(faveData);
+				if(oggetto['user'] == faveData['user'] && oggetto['repo'] == faveData['repo'] && oggetto['branch'] == faveData['branch'] && oggetto['section'] == faveData['section']){
+					alreadySaved=true;
+					break;
+				}
+			}
+		}
+		if(!alreadySaved){
+			save(faveData);
+			alert('added to your boormarks');
+		}else{
+			alert('already in your bookmarks');
+		}
 	});
 });
 
