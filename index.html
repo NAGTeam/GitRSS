@@ -12,12 +12,17 @@
 		<link type='text/css' href='style/headers.css' rel="stylesheet">
 		<link type='text/css' href='style/brick-1.0.1.css' rel="stylesheet">
 		<link type='text/css' href='style/style.css' rel="stylesheet">
+		<link type='text/css' href='style/octicons.css' rel="stylesheet"> 
 	</head>
 	<body>	
 		<x-deck>
 			<x-card id='search_card' selected transition="show">
 				<x-layout id='search_layout'>
-					<header class='top-menu'>
+					<header class='top-menu colorBlue'>
+						<button disabled></button>
+						<menu type="toolbar">
+						    <button id='toAbout'><span class="mega-octicon octicon-question"></span></button>
+						</menu>
 						<h1>GitRSS</h1>
 					</header>
 					<section id='search_section'>
@@ -25,15 +30,15 @@
 							<input name='user' placeholder='GitHub Username'class='input form-control'>
 							<input name='repo' placeholder='GitHub Repository'class='input form-control'>
 							<input name='branch' placeholder='Branch' class='input form-control'>
-							<button id='submit' class='btn-success input'>SEARCH</button>
+							<button id='submit' class='btn-success input buttonBlue'>SEARCH</button>
 						</div>
 					</section>
-					<footer role="toolbar">
+					<footer role="toolbar" class='colorBlue'>
 						  <ul>
-							<li><a href='#' class='toStarred'>Bookmarks</a></li>
+							<li><a href='#' class='toStarred linkBlue'>Bookmarks</a></li>
 						  </ul>
 						  <ul>
-							<li><a href='#' class='toHistory'>History</a></li>
+							<li><a href='#' class='toHistory linkBlue'>History</a></li>
 						  </ul>
 					</footer>
 				</x-layout>
@@ -41,10 +46,10 @@
 					
 			<x-card id='res_card' transition-type='slide-right'>
 				<x-layout id='res_layout'>
-					<header class='top-menu'>
-						<button class='toSearch'><span class='icon icon-search'>search</span></button>
+					<header class='top-menu colorBlue'>
+						<button class='toSearch'><span class="mega-octicon octicon-search"></span></button>
 						<menu type="toolbar">
-						    <button id='star_this'><span class="icon icon-bookmark">bookmark</span></button>
+						    <button id='star_this'><span class="mega-octicon octicon-star"></span></button>
 						</menu>
 						<h1 id='repo'></h1>
 					</header>
@@ -52,12 +57,12 @@
 						<div id='reslist' data-type='list'>
 						</div>
 					</section>
-					<footer role="toolbar">
+					<footer role="toolbar" class='colorBlue'>
 						  <ul>
-							<li><a href='#' class='toStarred'>Bookmarks</a></li>
+							<li><a href='#' class='toStarred linkBlue'>Bookmarks</a></li>
 						  </ul>
 						  <ul>
-							<li><a href='#' class='toHistory'>History</a></li>
+							<li><a href='#' class='toHistory linkBlue'>History</a></li>
 						  </ul>
 					</footer>
 				</x-layout>
@@ -65,7 +70,7 @@
 			
 			<x-card id='starred_card'>
 				<x-layout id='starred'>
-					<header class='top-menu'>
+					<header class='top-menu colorBlue'>
 						<div class='header'>
 							<h1>Bookmarks</h1>
 						</div>
@@ -74,12 +79,12 @@
 						<ul id='star_list'>
 						</ul>
 					</section>
-					<footer role="toolbar">
+					<footer role="toolbar" class='colorBlue'>
 						  <ul>
-							<li><a href='#' class='toSearch'>Search</a></li>
+							<li><a href='#' class='toSearch linkBlue'>Search</a></li>
 						  </ul>
 						  <ul>
-							<li><a href='#' class='toHistory'>History</a></li>
+							<li><a href='#' class='toHistory linkBlue'>History</a></li>
 						  </ul>
 					</footer>
 				</x-layout>
@@ -87,23 +92,63 @@
 			
 			<x-card id='history_card'>
 				<x-layout id='history'>
-					<header class='top-menu'>
+					<header class='top-menu colorBlue'>
 						<menu type="toolbar">
-						    <button id='clear'><span class="icon icon-clearHistory">clearHistory</span></button>
+						    <button id='clear'><span class="mega-octicon octicon-trashcan"></span></button>
 						</menu> 
-						<button></button>
+						<button disabled></button>
 						<h1>History</h1>
 					</header>
 					<section data-type='list'>
 						<ul id='list_his'>
 						</ul>
 					</section>
-					<footer role="toolbar">
+					<footer role="toolbar" class='colorBlue'>
 						  <ul>
-							<li><a href='#' class='toSearch'>Search</a></li>
+							<li><a href='#' class='toSearch linkBlue'>Search</a></li>
 						  </ul>
 						  <ul>
-							<li><a href='#' class='toStarred'>Bookmarks</a></li>
+							<li><a href='#' class='toStarred linkBlue'>Bookmarks</a></li>
+						  </ul>
+					</footer >
+				</x-layout>
+			</x-card>
+			
+			<x-card id='about_card'>
+				<x-layout id='about'>
+					<header class='top-menu colorBlue'>
+						<menu type="toolbar">
+							<button disabled></button>
+						</menu>
+						<button class='toSearch'><span class="mega-octicon octicon-arrow-left"></span></button>
+						<h1>About</h1>
+					</header>
+					<section id='about_page'>
+						<p>gitRSS allows you to keep an eye on github commits, in this version notifications <strong>aren't</strong> implemented.
+						We'll add notifications and others features with the upcoming releases.</p>
+						<h4>Version:</h4>
+						<p><em>1.0</em></p>
+						<h4>Developers</h4>
+						<p><strong>nag</strong> [, say /neg] are:
+							<br>
+							<a class='link' href='http://twitter.com/nicokant'>@nicokant</a>
+							<br>
+							<a class='link' href='http://twitter.com/aro94'>@aro94</a>
+							<br>
+							special thanks to <a href='http://twitter.com/giuscri'class='link'>@giuscri</a>
+						</p>
+						
+						<p>support us with a review on Mozilla Market Place!</p>
+						<br>
+						<button id='gitfeed' class='buttonBlue'>view gitRSS commits!</button>
+						<br>
+					</section>
+					<footer role="toolbar" class='colorBlue'>
+						  <ul>
+							<li><a href='#' class='toStarred linkBlue'>Bookmarks</a></li>
+						  </ul>
+						  <ul>
+							<li><a href='#' class='toHistory linkBlue'>History</a></li>
 						  </ul>
 					</footer>
 				</x-layout>

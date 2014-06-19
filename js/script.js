@@ -3,6 +3,10 @@ $(document).ready(function(){
 	/*initialize the localStorage counter to 0*/
 	init();
 	
+	$(document).on('click','#toAbout',function(){
+		goToCard(4);
+	});
+	
 	/*navigation to search section*/
 	$(document).on('click','.toSearch',function(){
 		goToCard(0);
@@ -44,6 +48,11 @@ $(document).ready(function(){
 		}else{
 			sendRequest(user,repo,branch);
 		}
+	});
+	
+	
+	$(document).on('click','#gitfeed',function(){
+		sendRequest('nag-motherfuckers','gitRSS','master');
 	});
 	
 	/*history list listener, auto redirect on click*/
@@ -157,7 +166,7 @@ function sendRequest(user,repo,branch){
 					link=$response.find('entry link')[i].getAttribute("href");
 					
 					/*show results*/
-					$('#reslist').append('<header>'+day+'-'+month+' '+hour+' by '+author[i].textContent+'</header><a href="'+link+'"><p>'+titolo[i].textContent+'</p></a>');
+					$('#reslist').append('<header class="listheaderBlue borderBlue">'+day+'-'+month+' '+hour+' by '+author[i].textContent+'</header><a href="'+link+'"><p class="commit">'+titolo[i].textContent+'</p></a>');
 				}else{
 					break;
 				}
