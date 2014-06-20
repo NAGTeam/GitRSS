@@ -121,8 +121,8 @@ $(document).ready(function(){
 		});
 	};
 
-	document.querySelector("#nicokant")
-	.onclick = function () {
+	$(document).on('click','#nicokant',function(){
+		console.log("clicked");
 		new MozActivity({
 			name: "view",
 			data: {
@@ -130,7 +130,7 @@ $(document).ready(function(){
 				url: "http://twitter.com/nicokant"
 			}
 		});
-	};
+	});
 
 	document.querySelector("#aro94")
 	.onclick = function () {
