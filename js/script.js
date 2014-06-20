@@ -68,7 +68,6 @@ $(document).ready(function(){
 	
 	/*starred list listener*/
 	$(document).on('click','.found_star',function(){
-		console.log($(this).attr('id'));
 		showNumber = parseInt($(this).attr('id'));
 		selected = JSON.parse(localStorage.getItem(showNumber+""));
 		user=selected['user'];
@@ -91,8 +90,8 @@ $(document).ready(function(){
 		for(i=1; i<=count;i++) {
 			if(JSON.parse(localStorage.getItem(i+"")) !== null){
 				oggetto = JSON.parse(localStorage.getItem(i+""));
-				console.log(oggetto);
-				console.log(faveData);
+				
+		
 				if(oggetto['user'] == faveData['user'] && oggetto['repo'] == faveData['repo'] && oggetto['branch'] == faveData['branch'] && oggetto['section'] == faveData['section']){
 					alreadySaved=true;
 					break;
@@ -108,9 +107,9 @@ $(document).ready(function(){
 	});
 
 	$(document).on('click',"#foo", function(){
-		console.log("clicked!");
+		
 		var link = this.getAttribute("title");
-		console.log(link);
+		
 		new MozActivity({
 			name: "view",
 			data: {
@@ -121,7 +120,7 @@ $(document).ready(function(){
 	});
 
 	$(document).on('click','#nicokant',function(){
-		console.log("clicked");
+		
 		new MozActivity({
 			name: "view",
 			data: {

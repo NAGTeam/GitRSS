@@ -16,8 +16,7 @@ function save(dataJSON){
 	for(i=1; i<=count;i++) {
 		if(JSON.parse(localStorage.getItem(i+"")) !== null){
 			oggetto = JSON.parse(localStorage.getItem(i+""));
-			console.log(oggetto);
-			console.log(dataJSON);
+
 			if(oggetto['user'] == dataJSON['user'] && oggetto['repo'] == dataJSON['repo'] && oggetto['branch'] == dataJSON['branch'] && oggetto['section'] == dataJSON['section']){
 				alreadySaved=true;
 				break;
@@ -25,7 +24,7 @@ function save(dataJSON){
 		}
 	}
 	if(!alreadySaved){
-		console.log('saving '+ dataJSON);
+
 		JString=JSON.stringify(dataJSON);
 		count=parseInt(localStorage.getItem('counter'));
 		localStorage.setItem('counter',(++count)+"");
@@ -36,7 +35,7 @@ function save(dataJSON){
 
 /*get all the datas saved in the memory and show them. section is the space that you have to fill*/ 
 function getData(section){
-	console.log('getting');
+	
 	count=parseInt(localStorage.getItem('counter'));
 	for(i=1; i<=count;i++) {
 		if(JSON.parse(localStorage.getItem(i+"")) !== null){

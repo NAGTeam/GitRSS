@@ -4,10 +4,13 @@
   "launch_path": "/index.html",
   "orientation": "portrait",
   "developer": {
-    "name": "nag",
-    "url": "http//:github.com/nag-motherfuckers/"
+    "name": "nag"
   },
-  "permissions": {"systemXHR": {} },
+  "permissions":{
+	  "systemXHR": {
+		"description":"Used to get commits from GitHub"
+    } 
+  },
   "type": "privileged",
   "icons": {
     "128": "/icon/128.png",
