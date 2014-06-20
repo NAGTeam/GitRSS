@@ -1,7 +1,7 @@
 function createAlarm(){
 	now=new Date();
 	console.log(now.getHours());
-	//now.setHours(now.getHours()+1);
+	now.setHours(now.getHours()+1);
 	console.log(now.getHours());
 	
 	data='done';
@@ -20,6 +20,7 @@ function createAlarm(){
 	navigator.mozSetMessageHandler("alarm", function (alarm){
 		new Notification(alarm.data);
 		updateNotified(alarm.data);
+		createAlarm();
 	});
 	
 }
