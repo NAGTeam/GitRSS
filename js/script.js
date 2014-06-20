@@ -106,6 +106,53 @@ $(document).ready(function(){
 			alert('already in your bookmarks');
 		}
 	});
+
+	document.querySelector("#foo")
+	.onclick = function () {
+		console.log("clicked!");
+		var link = this.getAttribute("title");
+		console.log(link);
+		new MozActivity({
+			name: "view",
+			data: {
+				type: "url",
+				url: link
+			}
+		});
+	};
+
+	document.querySelector("#nicokant")
+	.onclick = function () {
+		new MozActivity({
+			name: "view",
+			data: {
+				type: "url",
+				url: "http://twitter.com/nicokant"
+			}
+		});
+	};
+
+	document.querySelector("#aro94")
+	.onclick = function () {
+		new MozActivity({
+			name: "view",
+			data: {
+				type: "url",
+				url: "http://twitter.com/aro94"
+			}
+		});
+	};
+
+	document.querySelector("#giuscri")
+	.onclick = function () {
+		new MozActivity({
+			name: "view",
+			data: {
+				type: "url",
+				url: "http://twitter.com/giuscri"
+			}
+		});
+	};
 });
 
 /*send the xmlHTTPRequest*/
@@ -163,10 +210,10 @@ function sendRequest(user,repo,branch){
 					month=date[2];
 					day=date[3];
 					hour=date[4];
-					link=$response.find('entry link')[i].getAttribute("href");
+					linkst=$response.find('entry link')[i].getAttribute("href");
 					
 					/*show results*/
-					$('#reslist').append('<header class="listheaderBlue borderBlue">'+day+'-'+month+' '+hour+' by '+author[i].textContent+'</header><a href="'+link+'"><p class="commit">'+titolo[i].textContent+'</p></a>');
+					$('#reslist').append('<header class="listheaderBlue borderBlue">'+day+'-'+month+' '+hour+' by '+author[i].textContent+'</header><a href="#" id="foo" title="'+linkst+'"><p class="commit">'+titolo[i].textContent+'</p></a>');
 				}else{
 					break;
 				}
@@ -197,4 +244,3 @@ function goToCard(cardNum){
 	$('#star_list').empty();	
 	
 }
-
