@@ -107,8 +107,7 @@ $(document).ready(function(){
 		}
 	});
 
-	document.querySelector("#foo")
-	.onclick = function () {
+	$(document).on('click',"#foo", function(){
 		console.log("clicked!");
 		var link = this.getAttribute("title");
 		console.log(link);
@@ -119,7 +118,7 @@ $(document).ready(function(){
 				url: link
 			}
 		});
-	};
+	});
 
 	$(document).on('click','#nicokant',function(){
 		console.log("clicked");
