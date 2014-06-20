@@ -2,6 +2,7 @@
 $(document).ready(function(){
 	/*initialize the localStorage counter to 0*/
 	init();
+	createAlarm();
 	
 	$(document).on('click','#toAbout',function(){
 		goToCard(4);

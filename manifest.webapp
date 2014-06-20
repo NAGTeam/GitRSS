@@ -7,7 +7,11 @@
     "name": "nag",
     "url": "http//:github.com/nag-motherfuckers/"
   },
-  "permissions": {"systemXHR": {} },
+  "permissions":{ 
+	"alarms": {
+      "description": "Required to schedule alarms"
+	  },
+	"systemXHR": {} },
   "type": "privileged",
   "icons": {
     "128": "/icon/128.png",
