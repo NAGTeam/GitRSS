@@ -8,9 +8,17 @@
     "url": "http//:github.com/nag-motherfuckers/"
   },
   "permissions":{ 
+	
+	"desktop-notification" : {
+      "description": "Required to schedule notifications"
+    },
 	"alarms": {
       "description": "Required to schedule alarms"
 	  },
+	"messages": [
+		{ "alarm": "/index.html" },
+		{ "notification": "/index.html" }
+	],
 	"systemXHR": {} },
   "type": "privileged",
   "icons": {
