@@ -22,7 +22,13 @@ function createAlarm(){
 }
 
 navigator.mozSetMessageHandler("alarm", function (alarm){
-    new Notification(alarm.data);
-    $(document).trigger('alarmTrigger');
-    updateNotified(alarm.data);
+    manageNotification(alarm);
 });
+
+function manageNotification(alarm){
+    $(document).trigger('alarmTrigger');
+    
+    
+    new Notification(alarm.data);
+    updateNotified(alarm.data);
+}

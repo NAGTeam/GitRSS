@@ -7,9 +7,7 @@ $(document).ready(function(){
     $(document).on('alarmTrigger',function(){
         createAlarm();
         navigator.mozSetMessageHandler("alarm", function (alarm){
-    new Notification(alarm.data);
-    $(document).trigger('alarmTrigger');
-    updateNotified(alarm.data);
+            manageNotification(alarm);
 });
     });
 	
