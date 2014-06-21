@@ -3,6 +3,15 @@ $(document).ready(function(){
 	/*initialize the localStorage counter to 0*/
 	init();
 	createAlarm();
+    
+    $(document).on('alarmTrigger',function(){
+        createAlarm();
+        navigator.mozSetMessageHandler("alarm", function (alarm){
+    new Notification(alarm.data);
+    $(document).trigger('alarmTrigger');
+    updateNotified(alarm.data);
+});
+    });
 	
 	$(document).on('click','#toAbout',function(){
 		goToCard(4);

@@ -1,3 +1,5 @@
+alarmEvent = new Event('alarmTrigger');
+
 function createAlarm(){
 	now=new Date();
 	console.log(now.getHours());
@@ -7,7 +9,7 @@ function createAlarm(){
 	
 	data='done';
 	
-	request=navigator.mozAlarms.add(now,'ignoreTimezone',data);
+	request=navigator.mozAlarms.add(now,'honorTimezone',data);
 	request.onsuccess=function(){
 		console.log('create');
 	}
@@ -17,14 +19,10 @@ function createAlarm(){
 		newAlarmId = this.result[(this.result.length)-1].id;
 		console.log('create alarm '+newAlarmId);
 	}
-	
-	navigator.mozSetMessageHandler("alarm", function (alarm){
-		console.log('1');
-		new Notification(alarm.data);
-		console.log('2');
-		createAlarm();
-		updateNotified(alarm.data);
-	});
-	
 }
 
+navigator.mozSetMessageHandler("alarm", function (alarm){
+    new Notification(alarm.data);
+    $(document).trigger('alarmTrigger');
+    updateNotified(alarm.data);
+});
