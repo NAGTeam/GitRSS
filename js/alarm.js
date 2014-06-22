@@ -79,7 +79,7 @@ function checkUpdate(oggetto,i){
                     JString=JSON.stringify(overwrite);
 		            localStorage.setItem(i+"", JString);
                    console.log('here');
-                   new Notification('new notif');
+                   new Notification('<span class="octicon octicon-mark-github"></span> new commit on '+oggetto['user']+'/'+oggetto['repo']);
             }
         }
     };
