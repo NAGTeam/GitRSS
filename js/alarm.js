@@ -71,3 +71,5 @@ function checkUpdate(oggetto){
         }
     };
 }
+
+//detect this
