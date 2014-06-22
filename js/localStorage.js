@@ -41,7 +41,6 @@ function getData(section){
 	for(i=1; i<=count;i++) {
 		if(JSON.parse(localStorage.getItem(i+"")) !== null){
 			oggetto = JSON.parse(localStorage.getItem(i+""));
-            console.log(oggetto);
 			/*if history is selected, prepend only history items*/
 			if(section == 'history'){
 				if(oggetto['section'] == 'history') 
