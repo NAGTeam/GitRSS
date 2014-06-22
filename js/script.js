@@ -1,4 +1,4 @@
-
+latestUpdate=0;
 $(document).ready(function(){
 	/*initialize the localStorage counter to 0*/
 	init();
@@ -91,6 +91,7 @@ $(document).ready(function(){
 			'user':user,
 			'repo':repo,
 			'branch':branch,
+            'latestUpdate':latestUpdate,
 			'section':'starred'
 		};
 		alreadySaved=false;
@@ -161,7 +162,7 @@ function sendRequest(user,repo,branch){
 			author= $response.find('name');
 			update=$response.find('entry updated');
 			$('#reslist').empty();
-			
+            latestUpdate= new Date(update[0].textContent);
 			/*iterate all the values*/
 			for(i=0;i<=titolo.length; i++){
 				if(update[i] != undefined){
@@ -172,7 +173,7 @@ function sendRequest(user,repo,branch){
 					day=date[3];
 					hour=date[4];
 					link=$response.find('entry link')[i].getAttribute("href");
-					
+					console.log(year);
 					/*show results*/
 					$('#reslist').append('<header class="listheaderBlue borderBlue">'+day+'-'+month+' '+hour+' by '+author[i].textContent+'</header><a href="'+link+'"><p class="commit">'+titolo[i].textContent+'</p></a>');
 				}else{
@@ -186,6 +187,7 @@ function sendRequest(user,repo,branch){
 				'user':user,
 				'repo':repo,
 				'branch':branch,
+                'latestUpdate':latestUpdate,
 				'section':'history'
 			};
 			save(searchData);
@@ -205,4 +207,3 @@ function goToCard(cardNum){
 	$('#star_list').empty();	
 	
 }
-
