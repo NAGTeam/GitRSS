@@ -5,6 +5,7 @@ function init(){
 		
     if (isNaN(parseInt(localStorage.getItem('counter')))) {
         localStorage.setItem('counter', '0');
+        createAlarm();
     }
 }
 

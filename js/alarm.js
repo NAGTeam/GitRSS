@@ -34,13 +34,13 @@ function manageNotification(alarm){
 			oggetto = JSON.parse(localStorage.getItem(i+""));
 			if(oggetto['section'] == 'starred'){
                console.log(oggetto);
-               checkUpdate(oggetto);
+               checkUpdate(oggetto,i);
             }
 		}        
       }
 }
 
-function checkUpdate(oggetto){
+function checkUpdate(oggetto,i){
     console.log('checking');
     request=new XMLHttpRequest({mozSystem:true});
     url= 'http://github.com/'+oggetto["user"]+'/'+oggetto["repo"]+'/commits/'+oggetto["branch"]+'.atom';
@@ -50,6 +50,7 @@ function checkUpdate(oggetto){
 	request.timeout = 5750;
 	request.addEventListener('timeout', function() {
 		console.log('timeout');
+        return;
 	});
 	
 	/*send the request*/
@@ -68,6 +69,15 @@ function checkUpdate(oggetto){
             console.log(latestUpdate);
             console.log(new Date(oggetto['latestUpdate']));
             if(latestUpdate>new Date(oggetto['latestUpdate'])){
+                   overwrite={
+                        'user':oggetto['user'],
+				        'repo':oggetto['repo'],
+				        'branch':oggetto['branch'],
+                        'latestUpdate':latestUpdate,
+				        'section':'starred'  
+                   };
+                    JString=JSON.stringify(overwrite);
+		            localStorage.setItem(i+"", JString);
                    console.log('here');
                    new Notification('new notif');
             }

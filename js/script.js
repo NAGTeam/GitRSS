@@ -2,7 +2,6 @@ latestUpdate=0;
 $(document).ready(function(){
 	/*initialize the localStorage counter to 0*/
 	init();
-	createAlarm();
     
     $(document).on('alarmTrigger',function(){
         createAlarm();
