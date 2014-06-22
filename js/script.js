@@ -3,6 +3,13 @@ $(document).ready(function(){
 	/*initialize the localStorage counter to 0*/
 	init();
     
+    preAlarm=false;
+    
+    setTimeout(function(){
+        if(!preAlarm)
+            createAlarm();
+    },60000);
+    
     $(document).on('alarmTrigger',function(){
         createAlarm();
         navigator.mozSetMessageHandler("alarm", function (alarm){
