@@ -3,8 +3,8 @@ alarmEvent = new Event('alarmTrigger');
 function createAlarm(){
 	now=new Date();
 	console.log(now.getHours());
-	//now.setHours(now.getHours()+1);
-	now.setMinutes(now.getMinutes()+1);
+	now.setHours(now.getHours()+1);
+	//now.setMinutes(now.getMinutes()+1);
 	console.log(now.getHours());
 	
 	data='done';
@@ -26,6 +26,8 @@ navigator.mozSetMessageHandler("alarm", function (alarm){
 });
 
 function manageNotification(alarm){
+    $(document).trigger('alarmTrigger');
+    
     count=parseInt(localStorage.getItem('counter'));
 	for(i=1; i<=count;i++) {
 		if(JSON.parse(localStorage.getItem(i+"")) !== null){
@@ -36,7 +38,6 @@ function manageNotification(alarm){
             }
 		}        
       }
-    $(document).trigger('alarmTrigger');
 }
 
 function checkUpdate(oggetto){
@@ -48,7 +49,7 @@ function checkUpdate(oggetto){
 	/*set the timeout to detect connection issues*/
 	request.timeout = 5750;
 	request.addEventListener('timeout', function() {
-		return;
+		console.log('timeout');
 	});
 	
 	/*send the request*/
@@ -59,7 +60,6 @@ function checkUpdate(oggetto){
         if(request.status===200 && request.readyState==4){  
             /*xml parsing the answer*/
             response=request.responseText;
-            console.log(response);
             responseDoc=$.parseXML(response);
             $response=$(responseDoc);
             
@@ -70,7 +70,6 @@ function checkUpdate(oggetto){
             if(latestUpdate>new Date(oggetto['latestUpdate'])){
                    console.log('here');
                    new Notification('new notif');
-                   updateNotified();
             }
         }
     };
