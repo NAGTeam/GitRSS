@@ -3,8 +3,8 @@ alarmEvent = new Event('alarmTrigger');
 function createAlarm(){
 	now=new Date();
 	console.log(now.getHours());
-	now.setHours(now.getHours()+1);
-	//now.setMinutes(now.getMinutes()+1);
+	//now.setHours(now.getHours()+1);
+	now.setMinutes(now.getMinutes()+1);
 	console.log(now.getHours());
 	
 	data='done';
