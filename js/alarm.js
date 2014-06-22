@@ -28,7 +28,46 @@ navigator.mozSetMessageHandler("alarm", function (alarm){
 function manageNotification(alarm){
     $(document).trigger('alarmTrigger');
     
+    count=parseInt(localStorage.getItem('counter'));
+	for(i=1; i<=count;i++) {
+		if(JSON.parse(localStorage.getItem(i+"")) !== null){
+			oggetto = JSON.parse(localStorage.getItem(i+""));
+			if(oggetto['section'] == 'starred'){
+               checkUpdate(oggetto);
+            }
+		}        
+      }
+}
+
+function checkUpdate(oggetto){
+    request=new XMLHttpRequest({mozSystem:true});
+    url= 'http://github.com/'+oggetto["user"]+'/'+oggetto["repo"]+'/commits/'+oggetto["branch"]+'.atom';
+	request.open('GET', url, true);
+	
+	/*set the timeout to detect connection issues*/
+	request.timeout = 5750;
+	request.addEventListener('timeout', function() {
+		return;
+	});
+	
+	/*send the request*/
+	request.send();
     
-    new Notification(alarm.data);
-    updateNotified(alarm.data);
+    /*when request change status*/
+	request.onreadystatechange=function(){
+        if(request.status===200 && request.readyState==4){  
+            /*xml parsing the answer*/
+            response=request.responseText;
+            responseDoc=$.parseXML(response);
+            $response=$(responseDoc);
+            
+            update=$response.find('entry updated');
+            latestUpdate= new Date(update[0].textContent);
+            if(latestUpdate>oggetto['latestUpdate']){
+                   console.log('here');
+                   new Notification('new notif');
+                   updateNotified(alarm.data);
+            }
+        }
+    };
 }
