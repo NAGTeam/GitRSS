@@ -1,6 +1,6 @@
 {
   "name": "GitRSS",
-  "description": "a GitHub commits feed RSS",
+  "description": "A GitHub commits feed RSS",
   "launch_path": "/index.html",
   "orientation": "portrait",
   "developer": {
@@ -17,5 +17,17 @@
     "60": "/icon/60.png",
 	"120": "/icon/120.png",
 	"90": "/icon/90.png"
+  },
+  "default-locale": "en",
+  "locales": {
+    "it-IT": {
+      "description": "Un lettore di feed RSS per GitHub"
+    },
+    "en": {
+      "description": "A GitHub commits feed RSS"
+    },
+    "en-US": {
+      "description": "A GitHub commits feed RSS"
+    }
   }
 }

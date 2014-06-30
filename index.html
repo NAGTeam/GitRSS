@@ -6,6 +6,7 @@
 		<script src='js/brick-1.0.1.js'></script>
 		<script src='js/localStorage.js'></script>
 		<script src='js/script.js'></script>
+        <script src='js/l10n.js'></script>
 		
 		<link type='text/css' href='style/lists.css' rel="stylesheet">
 		<link type='text/css' href='style/toolbars.css' rel="stylesheet">
@@ -30,15 +31,15 @@
 							<input name='user' placeholder='GitHub Username'class='input form-control'>
 							<input name='repo' placeholder='GitHub Repository'class='input form-control'>
 							<input name='branch' placeholder='Branch' class='input form-control'>
-							<button id='submit' class='btn-success input buttonBlue'>SEARCH</button>
+							<button id='submit' class='btn-success input buttonBlue' data-l10n-id='search'>SEARCH</button>
 						</div>
 					</section>
 					<footer role="toolbar" class='colorBlue'>
 						  <ul>
-							<li><a href='#' class='toStarred linkBlue'>Bookmarks</a></li>
+							<li><a href='#' class='toStarred linkBlue' data-l10n-id='bookmarks'>Bookmarks</a></li>
 						  </ul>
 						  <ul>
-							<li><a href='#' class='toHistory linkBlue'>History</a></li>
+							<li><a href='#' class='toHistory linkBlue' data-l10n-id='history'>History</a></li>
 						  </ul>
 					</footer>
 				</x-layout>
@@ -59,10 +60,10 @@
 					</section>
 					<footer role="toolbar" class='colorBlue'>
 						  <ul>
-							<li><a href='#' class='toStarred linkBlue'>Bookmarks</a></li>
+							<li><a href='#' class='toStarred linkBlue' data-l10n-id='bookmarks'>Bookmarks</a></li>
 						  </ul>
 						  <ul>
-							<li><a href='#' class='toHistory linkBlue'>History</a></li>
+							<li><a href='#' class='toHistory linkBlue' data-l10n-id='history'>History</a></li>
 						  </ul>
 					</footer>
 				</x-layout>
@@ -72,7 +73,7 @@
 				<x-layout id='starred'>
 					<header class='top-menu colorBlue'>
 						<div class='header'>
-							<h1>Bookmarks</h1>
+							<h1 data-l10n-id='bookmarks'>Bookmarks</h1>
 						</div>
 					</header>
 					<section data-type='list'>
@@ -81,10 +82,10 @@
 					</section>
 					<footer role="toolbar" class='colorBlue'>
 						  <ul>
-							<li><a href='#' class='toSearch linkBlue'>Search</a></li>
+							<li><a href='#' class='toSearch linkBlue' data-l10n-id='search2'>Search</a></li>
 						  </ul>
 						  <ul>
-							<li><a href='#' class='toHistory linkBlue'>History</a></li>
+							<li><a href='#' class='toHistory linkBlue' data-l10n-id='history'>History</a></li>
 						  </ul>
 					</footer>
 				</x-layout>
@@ -97,7 +98,7 @@
 						    <button id='clear'><span class="mega-octicon octicon-trashcan"></span></button>
 						</menu> 
 						<button disabled></button>
-						<h1>History</h1>
+						<h1 data-l10n-id='history'>History</h1>
 					</header>
 					<section data-type='list'>
 						<ul id='list_his'>
@@ -105,10 +106,10 @@
 					</section>
 					<footer role="toolbar" class='colorBlue'>
 						  <ul>
-							<li><a href='#' class='toSearch linkBlue'>Search</a></li>
+							<li><a href='#' class='toSearch linkBlue' data-l10n-id='search2'>Search</a></li>
 						  </ul>
 						  <ul>
-							<li><a href='#' class='toStarred linkBlue'>Bookmarks</a></li>
+							<li><a href='#' class='toStarred linkBlue' data-l10n-id='bookmarks'>Bookmarks</a></li>
 						  </ul>
 					</footer >
 				</x-layout>
@@ -124,31 +125,31 @@
 						<h1>About</h1>
 					</header>
 					<section id='about_page'>
-						<p>gitRSS allows you to keep an eye on github commits, in this version notifications <strong>aren't</strong> implemented.
+						<p data-l10n-id='about1'>gitRSS allows you to keep an eye on github commits, in this version notifications aren't implemented.
 						We'll add notifications and others features with the upcoming releases.</p>
-						<h4>Version:</h4>
+						<h4 data-l10n-id='version'>Version:</h4>
 						<p><em>1.0</em></p>
-						<h4>Developers:</h4>
+						<h4 data-l10n-id='developers'>Developers:</h4>
 						<p><strong>nag</strong> [, say /neg] are:
 							<br>
 							<a href='#' class='link' id='nicokant'>@nicokant</a>
 							<br>
 							<a href='#' class='link' id='aro94'>@aro94</a>
 							<br>
-							special thanks to <a href="#" id='giuscri' class='link'>@giuscri</a>
+							<p data-l10n-id='special_thanks'>special thanks to </p><a href="#" id='giuscri' class='link'>@giuscri</a>
 						</p>
 						
-						<p>support us with a review on Mozilla Market Place!</p>
+						<p data-l10n-id='support_us'>support us with a review on Mozilla Market Place!</p>
 						<br>
-						<button id='gitfeed' class='buttonBlue'>VIEW GITRSS COMMITS!</button>
+						<button id='gitfeed' class='buttonBlue' data-l10n-id='gitrss_commits'>VIEW GITRSS COMMITS!</button>
 						<br>
 					</section>
 					<footer role="toolbar" class='colorBlue'>
 						  <ul>
-							<li><a href='#' class='toStarred linkBlue'>Bookmarks</a></li>
+							<li><a href='#' class='toStarred linkBlue' data-l10n-id='bookmarks'>Bookmarks</a></li>
 						  </ul>
 						  <ul>
-							<li><a href='#' class='toHistory linkBlue'>History</a></li>
+							<li><a href='#' class='toHistory linkBlue' data-l10n-id='history'>History</a></li>
 						  </ul>
 					</footer>
 				</x-layout>
