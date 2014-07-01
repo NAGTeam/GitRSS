@@ -80,7 +80,7 @@ function checkUpdate(oggetto,i){
                     JString=JSON.stringify(overwrite);
 		            localStorage.setItem(i+"", JString);
                    console.log('here');
-                   new Notification('new commit on '+oggetto['user']+'/'+oggetto['repo']);
+                   new Notification('commit on '+oggetto['user']+'/'+oggetto['repo']);
             }
         }
     };
