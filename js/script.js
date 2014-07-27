@@ -52,7 +52,7 @@ $(document).ready(function(){
 	
 	
 	$(document).on('click','#gitfeed',function(){
-		sendRequest('nag-motherfuckers','gitRSS','master');
+		sendRequest('NAGTeam','gitRSS','master');
 	});
 	
 	/*history list listener, auto redirect on click*/
