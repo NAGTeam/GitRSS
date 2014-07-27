@@ -1,6 +1,7 @@
 {
   "name": "GitRSS",
   "description": "a GitHub commits feed RSS",
+  "version": "1.0.1",
   "launch_path": "/index.html",
   "orientation": "portrait",
   "developer": {
