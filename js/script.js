@@ -3,12 +3,14 @@ $(document).ready(function(){
 	/*initialize the localStorage counter to 0*/
 	init();
     
-    preAlarm=false;
+    remAlarms();
+    //preAlarm=false;
     
-    setTimeout(function(){
+    /*setTimeout(function(){
         if(!preAlarm)
             createAlarm();
-    },60000);
+    },60000);*/
+    createAlarm();
     
     $(document).on('alarmTrigger',function(){
         createAlarm();
@@ -66,7 +68,7 @@ $(document).ready(function(){
 	
 	
 	$(document).on('click','#gitfeed',function(){
-		sendRequest('nag-motherfuckers','gitRSS','master');
+		sendRequest('NAGTeam','gitRSS','master');
 	});
 	
 	/*history list listener, auto redirect on click*/

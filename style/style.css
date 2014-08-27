@@ -1,3 +1,5 @@
+*{ overflow-x: hidden;}
+
 body{
 	margin:0;
 }
@@ -63,6 +65,8 @@ a {
 
 .commit {
 	padding: 0 0.4rem;
+	width:100%;
+	overflow-x: hidden;
 }
 
 /*Color Adjust*/
@@ -79,6 +83,7 @@ a {
 
 .listheaderBlue{
 	color: #2574a9;
+	width:100%;
 }
 
 .linkBlue:hover{
@@ -89,4 +94,9 @@ a {
 	background-color:#59abe3;
 	border:1px solid #3498db;
 	color:white;
+}
+
+#reslist{
+    width:100%;
+    overflow-x: hidden;
 }

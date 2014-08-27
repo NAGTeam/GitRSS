@@ -22,7 +22,7 @@ function createAlarm(){
 }
 
 navigator.mozSetMessageHandler("alarm", function (alarm){
-    preAlarm=true;
+    //preAlarm=true;
     manageNotification(alarm);
 });
 
@@ -86,4 +86,13 @@ function checkUpdate(oggetto,i){
     };
 }
 
+function remAlarms(){
+    all=navigator.mozAlarms.getAll();
+    
+    all.onsuccess = function(){
+        this.result.forEach(function(alarm){
+            navigator.mozAlarms.remove(alarm);
+        });
+    };
+}
 //detect this
