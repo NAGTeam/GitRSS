@@ -1,10 +1,23 @@
 alarmEvent = new Event('alarmTrigger');
 
+function initAlarm(){
+    now=new Date();
+    data='done';
+    
+    request=navigator.mozAlarms.add(now,'honorTimezone',data);
+	
+	alarmRequest= navigator.mozAlarms.getAll();
+	alarmRequest.onsuccess = function(){
+		newAlarmId = this.result[(this.result.length)-1].id;
+		console.log('create first alarm '+newAlarmId);
+	}
+}
+
 function createAlarm(){
 	now=new Date();
 	console.log(now.getHours());
-	//now.setHours(now.getHours()+1);
-	now.setMinutes(now.getMinutes()+1);
+	now.setHours(now.getHours()+3);
+	//now.setMinutes(now.getMinutes()+3);
 	console.log(now.getHours());
 	
 	data='done';

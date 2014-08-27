@@ -4,7 +4,7 @@ window.onload = function(){
 	init();
     
     remAlarms();
-    createAlarm();
+    initAlarm();
     
     
     $(document).on('alarmTrigger',function(){
