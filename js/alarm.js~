@@ -22,6 +22,7 @@ function createAlarm(){
 }
 
 navigator.mozSetMessageHandler("alarm", function (alarm){
+    preAlarm=true;
     manageNotification(alarm);
 });
 

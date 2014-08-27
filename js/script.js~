@@ -4,7 +4,12 @@ window.onload = function(){
 	init();
     
     remAlarms();
-    createAlarm();
+    preAlarm=false;
+    
+    setTimeout(function(){
+        if(!preAlarm)
+            createAlarm();
+    },100);
     
     
     $(document).on('alarmTrigger',function(){
