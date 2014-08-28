@@ -17,8 +17,8 @@
 	"systemXHR": {"description":"Used to get commits from GitHub"} 
   },
   "messages": [
-		{ "alarm": "/dialer/index.html" },
-		{ "notification": "/dialer/index.html" }
+		{ "alarm": "/index.html" },
+		{ "notification": "/index.html" }
 	],
   "type": "privileged",
   "icons": {
