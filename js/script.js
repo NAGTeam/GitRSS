@@ -118,6 +118,17 @@ window.onload = function(){
 			alert('already in your bookmarks');
 		}
 	});
+
+    $(document).on('click',".links", function(){
+		var link = this.getAttribute("id");
+		new MozActivity({
+			name: "view",
+			data: {
+				type: "url",
+				url: link
+			}
+		});
+	});
 };
 
 /*send the xmlHTTPRequest*/
@@ -178,7 +189,7 @@ function sendRequest(user,repo,branch){
 					link=$response.find('entry link')[i].getAttribute("href");
 					console.log(year);
 					/*show results*/
-					$('#reslist').append('<header class="listheaderBlue borderBlue">'+day+'-'+month+' '+hour+' by '+author[i].textContent+'</header><a href="'+link+'"><p class="commit">'+titolo[i].textContent+'</p></a>');
+					$('#reslist').append('<header class="listheaderBlue borderBlue">'+day+'-'+month+' '+hour+' by '+author[i].textContent+'</header><a href="#" id="'+link+'" class="links"><p class="commit">'+titolo[i].textContent+'</p></a>');
 				}else{
 					break;
 				}
