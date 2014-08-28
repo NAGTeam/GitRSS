@@ -60,12 +60,7 @@ window.onload = function(){
 			sendRequest(user,repo,branch);
 		}
 	});
-	
-	
-	$(document).on('click','#gitfeed',function(){
-		sendRequest('NAGTeam','gitRSS','master');
-	});
-	
+
 	/*history list listener, auto redirect on click*/
 	$(document).on('click','.found_his',function(){
 		/*id is setted to the counter value of each element*/
@@ -126,6 +121,46 @@ window.onload = function(){
 			data: {
 				type: "url",
 				url: link
+			}
+		});
+	});
+
+    $(document).on('click',"#gitfeed", function(){
+		new MozActivity({
+			name: "view",
+			data: {
+				type: "url",
+				url: "http://github.com/NAGTeam/GitRSS"
+			}
+		});
+	});
+
+    $(document).on('click',"#aro94", function(){
+		new MozActivity({
+			name: "view",
+			data: {
+				type: "url",
+				url: "http://twitter.com/aro94"
+			}
+		});
+	});
+
+    $(document).on('click',"#nicokant", function(){
+		new MozActivity({
+			name: "view",
+			data: {
+				type: "url",
+				url: "http://twitter.com/nicokant"
+			}
+		});
+	});
+
+    $(document).on('click',"#giuscri", function(){
+		new MozActivity({
+			name: "view",
+			data: {
+				type: "url",
+				url: "http://twitter.com/giuscri"
 			}
 		});
 	});

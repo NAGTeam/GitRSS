@@ -100,3 +100,15 @@ a {
     width:100%;
     overflow-x: hidden;
 }
+
+section > header {
+  border-bottom: 0.1rem solid #2574a9;
+  padding: 0 1.5rem;
+  margin: 0;
+  font-size: 1.2rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: normal;
+  color: #2574a9;
+  text-transform: uppercase;
+}
