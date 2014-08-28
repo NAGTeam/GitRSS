@@ -14,12 +14,11 @@
 	"alarms": {
       "description": "Required to schedule alarms"
 	  },
-	"systemXHR": {"description":"Used to get commits from GitHub"} 
-  },
-  "messages": [
+	"messages": [
 		{ "alarm": "/dialer/index.html" },
 		{ "notification": "/dialer/index.html" }
 	],
+	"systemXHR": {"description":"Used to get commits from GitHub"} },
   "type": "privileged",
   "icons": {
     "128": "/icon/128.png",
