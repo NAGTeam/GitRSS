@@ -112,3 +112,7 @@ section > header {
   color: #2574a9;
   text-transform: uppercase;
 }
+
+form[role="dialog"][data-type="confirm"] p {
+  line-height: 1.8rem;
+}

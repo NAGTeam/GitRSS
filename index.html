@@ -12,13 +12,14 @@
 		<link type='text/css' href='style/lists.css' rel="stylesheet">
 		<link type='text/css' href='style/toolbars.css' rel="stylesheet">
 		<link type='text/css' href='style/headers.css' rel="stylesheet">
+        <link type='text/css' href='style/confirm.css' rel="stylesheet">
 		<link type='text/css' href='style/brick-1.0.1.css' rel="stylesheet">
 		<link type='text/css' href='style/style.css' rel="stylesheet">
 		<link type='text/css' href='style/octicons.css' rel="stylesheet"> 
 	</head>
 	<body>	
 		<x-deck>
-			<x-card id='search_card' selected transition="show">
+			<x-card id='search_card' selected transition="show" transition-type='slide-down'>
 				<x-layout id='search_layout'>
 					<header class='top-menu colorBlue'>
 						<button disabled></button>
@@ -46,7 +47,7 @@
 				</x-layout>
 			</x-card>
 					
-			<x-card id='res_card' transition-type='slide-right'>
+			<x-card id='res_card'>
 				<x-layout id='res_layout'>
 					<header class='top-menu colorBlue'>
 						<button class='toSearch'><span class="mega-octicon octicon-search"></span></button>
@@ -154,7 +155,19 @@
 					</footer>
 				</x-layout>
 			</x-card>
-			
+
+            <x-card id="confirm">
+                <form role="dialog" data-type="confirm">
+                    <section>
+                        <h1>Delete from Bookmarks</h1>
+                        <p>The Branch is already starred, do you want to delete it from Bookmarks?</p>
+                    </section>
+                    <menu>
+                        <button id="ccancel">Cancel</button>
+                        <button class="danger" id="cdelete">Delete</button>
+                    </menu>
+                </form>
+            </x-card>
 		</x-deck>
 	</body>
 </html>

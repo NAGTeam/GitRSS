@@ -110,7 +110,7 @@ window.onload = function(){
 			save(faveData);
 			alert('added to your boormarks');
 		}else{
-			alert('already in your bookmarks');
+			goToCard(5);
 		}
 	});
 
@@ -124,6 +124,14 @@ window.onload = function(){
 			}
 		});
 	});
+
+    $(document).on('click', '#ccancel', function(){
+        goToCard(1);
+    });
+
+    $(document).on('click', '#cdelete', function(){
+        goToCard(1);
+    });
 
     $(document).on('click',"#gitfeed", function(){
 		new MozActivity({
